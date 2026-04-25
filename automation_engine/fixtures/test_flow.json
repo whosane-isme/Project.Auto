@@ -1,0 +1,12 @@
+{
+  "name": "poc_test_flow",
+  "steps": [
+    { "key": "t1", "type": "trigger", "config": { "event_name": "test.ping" } },
+    { "key": "c1", "type": "condition", "config": { "expr": "{{ event.x }} == 1" } },
+    { "key": "a1", "type": "set_variable", "config": { "name": "greeting", "value": "hello" } }
+  ],
+  "connections": [
+    { "from": "t1", "to": "c1" },
+    { "from": "c1", "to": "a1", "label": "condition_met" }
+  ]
+}
